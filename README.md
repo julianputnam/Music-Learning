@@ -1,8 +1,8 @@
 # Music-Learning
 ## Machine learning regression project powered by the Spotify API
 
-###8.20.2023
-Given any 30 second music audio file, predict Energy, Danceability, and Valence (how upbeat the song sounds) using convolutional neural networks trained on data collected via the Spotify API for Python (spotipy). Note: Only demo is currently available--ability to test on custom audio files and more features coming soon.
+### 8.20.2023
+Given any 30 second music audio file, predict Energy, Danceability, and Valence (how upbeat the song sounds) using convolutional neural networks trained on data collected via the Spotify API for Python (spotipy). *Note: Only demo is currently available--ability to test on custom audio files and more features coming soon.*
 
 Energy, Danceability, and Valence are audio characteristics stored by Spotify for every song on the platform and measured between 0 and 1. For instance, a song with Energy=0.2 and Valence=0.75 might be slow with soft instruments but still have a positive sentiment. Using our models, we can predict these values offline from previously "unheard" music audio files.
 
