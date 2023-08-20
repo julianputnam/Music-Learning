@@ -206,9 +206,9 @@ def download_previews_from_df(folder: str, df: df = info_df_cleaned):
                         filename=f"{df['Song_ID'][i]}.mp3",
                         preview_url=df['Preview_URL'][i])
 
-download_previews_from_df(folder="MAN_previews")
+download_previews_from_df(folder="audio previews")
 
-preview_files = os.listdir("MAN_previews/")
+preview_files = os.listdir("audio previews/")
 if ".DS_Store" in preview_files: preview_files.remove(".DS_Store")
 
 # Generate waveforms and then spectrograms from downloaded audio files
@@ -246,10 +246,10 @@ class AudioPipeline(nn.Module):
         ])
 
     def forward(self, waveform: torch.Tensor, augment: bool = False) -> torch.Tensor:
-        resampled = self.resample(waveform) #Changes sample rate (less data)
-        spec = self.spec(resampled) #Spectrogram
-        mel = self.mel_scale(spec) #Changes frequency from linear scale to more like how human ear hears it
-        mono = (mel[0] + mel[1]) / 2
+        resampled = self.resample(waveform)  # Changes sample rate (less data)
+        spec = self.spec(resampled)  # Converts waveform to spectrogram
+        mel = self.mel_scale(spec)  # Changes frequency from linear scale to a scale more akin to human hearing
+        mono = (mel[0] + mel[1]) / 2 #  2-channel to 1-channel
         unsqueezed = mono.unsqueeze(dim=0)
         with torch.inference_mode():
             resized = self.resize(unsqueezed)
@@ -269,7 +269,7 @@ def populate_audio_df(df: df, folder: str, preview_files: list, augment:bool = T
         df.loc[len(audio_df)] = [id, spectrogram] #populates audio_df
 
 # Populate columns of audio_df
-populate_audio_df(df=audio_df, folder="MAN_previews", preview_files=preview_files)
+populate_audio_df(df=audio_df, folder="audio previews", preview_files=preview_files)
 
 # Merge dataframes matching on Song_ID
 music_df = info_df_cleaned.merge(right=audio_df, on='Song_ID')

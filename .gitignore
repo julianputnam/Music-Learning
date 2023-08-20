@@ -1,4 +1,4 @@
-MAN_previews/*
+audio previews/*
 config.py
 __pycache__
 pandas_test.py
