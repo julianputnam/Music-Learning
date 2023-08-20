@@ -15,7 +15,7 @@ Energy, Danceability, and Valence are audio characteristics stored by Spotify fo
    Run data_collection.py > data_loading.py > model_train.py > model_demo.py
 
 ### How:
-• Collect and store information for ~3000 popular* songs in a pandas dataframe including Energy, etc., and download those songs' 30-second audio previews.
+• Collect and store information for ~3000 songs in a pandas dataframe including Energy, etc., and download those songs' 30-second audio previews.
 
 • Use torchaudio and a custom pipeline class to transform data from audio file > waveform (tensor) > spectrogram (tensor) for each collected audio file.
 
@@ -24,8 +24,6 @@ Energy, Danceability, and Valence are audio characteristics stored by Spotify fo
 • Train separate models, one for each target, on a custom CNN architecture. Learning spectrogram features is treated similarly to a computer vision problem.
 
 • Demonstrate model capabilities using randomly selected song from test dataset ("unheard" during model training).
-
-* Songs are pulled from the top songs of artists in top Spotify playlists and related artists, so songs are not guaranteed to be popular or culturally relevant, though many are. This adds to the diversity of the collected data.
 
 ### Why?
 I was motivated to start this project in June 2023 when I had the idea for an app that would allow a user to upload their own music audio and receive analysis and insight including the mood of the song, similar songs and artists, and possibly even which markets and demographics enjoy similar sounding songs the most, for indie artist marketing purposes. In order to bring this to fruition, the next steps would involve model implementation, accesible UI, building of additional features, and possibly redesigning the project based on an alternative data source containing marketing info such as Chartmetric.
