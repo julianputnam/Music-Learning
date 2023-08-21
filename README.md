@@ -25,7 +25,7 @@ Important: For the data collection steps, Spotify API access must be authorized 
 
 • Use torchaudio and a custom pipeline class to transform data from audio file > waveform (tensor) > spectrogram (tensor) for each collected audio file.
 
-• Create multiple PyTorch datasets and dataloaders using audio spectrograms as features and each characteristic (Energy, Danceability, Valence) as a target. Augment train datasets to help prevent overfitting. 
+• Create multiple PyTorch datasets and dataloaders using audio spectrograms as features and each characteristic (Energy, Danceability, Valence) as a target. Augment training sets to help prevent overfitting. 
 
 • Train separate models, one for each target, on a custom CNN architecture. Learning spectrogram features is treated similarly to a computer vision problem.
 
