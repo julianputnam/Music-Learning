@@ -19,10 +19,10 @@ with open('saved items/artists.pkl', 'rb') as f:
     artists = pickle.load(f)
 
 # Goal: Create datasets and dataloaders
-# for spectrograms (features) and three key metrics (labels): Energy, Danceability, and Valence.
+# for spectrograms (features) and three characteristics (targets): Energy, Danceability, and Valence.
 
 # Audio characteristic names. I use "characteristics" instead of the term "features" used by Spotify to avoid confusion,
-# since here they function as the "labels" (not features) in the machine learning context.
+# since here they function as the targets (not features) in the machine learning context.
 char_names = list(music_df.columns[8:18])
 with open('saved items/char_names.pkl', 'wb') as f:
     pickle.dump(char_names, f)
@@ -159,6 +159,7 @@ def visualize_dataset_features(train: torch.utils.data.Dataset,
     plot_spectrogram(train[idtrain][0].squeeze(), title= "Train Sample")
     plot_spectrogram(test[idtest][0].squeeze(), title = "Test Sample")
 
+# Uncomment to visualize:
 # visualize_dataset_features(energy_train_set, energy_test_set)
 
 
