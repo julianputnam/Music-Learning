@@ -13,7 +13,8 @@ Energy, Danceability, and Valence are audio characteristics stored by Spotify fo
 
 2. Collect and structure data for PyTorch, train models, then view demo results:
    Run data_collection.py > data_loading.py > model_train.py > model_demo.py
-   *Important: Spotify API access must be authorized with a valid client id and private key. To get your own, go to https://developer.spotify.com/*
+
+Important: For the data collection steps, Spotify API access must be authorized with a valid client id and private key. To get your own, go to https://developer.spotify.com/
 
 ### How:
 • Collect and store information for ~3000 songs in a pandas dataframe including Energy, etc., and download those songs' 30-second audio previews.
