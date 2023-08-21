@@ -42,28 +42,23 @@ class Spec_Analyzer(nn.Module):
         )
 
     def forward(self, x):
-        # If altering model, uncomment lines 68-71 and comment line 72 to test for input shape into classifier block
-        # x = self.conv1(x)
-        # x = self.conv2(x)
-        # x = self.conv3(x)
-        # print(x.shape) # input shape for classifier block
         return self.classifier(self.conv3(self.conv2(self.conv1(x))))
 
 energy_model = torch.load("saved items/energy_model_0.pt")
 dance_model = torch.load("saved items/dance_model_0.pt")
 valence_model = torch.load("saved items/valence_model_0.pt")
 
-# Load df_test to get test spectrograms and labels
+# Load df_test to get test spectrograms and targets
 with open('saved items/df_test.pkl', 'rb') as f:
     df_test = pickle.load(f)
 df_test = df_test.reset_index()
 
 def model_demo(energy_model: torch.nn.Module,
-                 dance_model: torch.nn.Module,
-                 valence_model: torch.nn.Module,
-                 df_test: df = df_test,
-                 device: str = 'cpu',
-                 seed: int = None):
+               dance_model: torch.nn.Module,
+               valence_model: torch.nn.Module,
+               df_test: df = df_test,
+               device: str = 'cpu',
+               seed: int = None):
     """
     Randomly choose a spectrogram from the test set.
     Print predicted Energy, Danceability, Valence and percent accuracy along with
