@@ -10,7 +10,6 @@ Energy, Danceability, and Valence are audio characteristics stored by Spotify fo
 Sample Spectrogram             |  Model Results
 :-------------------------:|:-------------------------:
 ![Example of an audio spectrogram](https://i.ibb.co/HNqwGjJ/dont-be-shy-spec-demo.png)  |  ![Example of model results](https://i.ibb.co/HHFq0b9/dont-be-shy-demo.png)
- | 
 
 ### Two ways to execute the code:
 1. Use saved models and spectrograms to quickly see demo results: 
