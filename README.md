@@ -7,14 +7,13 @@ Given any 30 second music audio file, predict Energy, Danceability, and Valence 
 
 Energy, Danceability, and Valence are audio characteristics stored by Spotify for every song on the platform and measured between 0 and 1. For instance, a song with Energy=0.2 and Valence=0.75 might be slow with soft instruments but still have a positive sentiment. Using trained models, we can predict these values offline from previously "unheard" music audio files.
 
-Important: Spotify API access must be authorized with a valid client id and private key. To get your own, go to https://developer.spotify.com/
-
 ### Two ways to execute the code:
 1. Use saved models and spectrograms to quickly see demo results: 
    Run model_demo.py
 
 2. Collect and structure data for PyTorch, train models, then view demo results:
    Run data_collection.py > data_loading.py > model_train.py > model_demo.py
+   *Important: Spotify API access must be authorized with a valid client id and private key. To get your own, go to https://developer.spotify.com/*
 
 ### How:
 • Collect and store information for ~3000 songs in a pandas dataframe including Energy, etc., and download those songs' 30-second audio previews.
