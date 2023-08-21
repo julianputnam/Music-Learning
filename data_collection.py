@@ -164,7 +164,7 @@ def populate_info_df(artists_dict: dict):
 
             i += 1
 
-# Testing populate_info_df():
+# Uncomment to test populate_info_df():
 # artists_shortened = dict(list(artists.items())[:20])
 # populate_info_df(artists_shortened)
 # info_df.head()
@@ -224,8 +224,8 @@ def wf_sr_generator(folder: str, preview_files: list):
 class AudioPipeline(nn.Module):
     """
     Custom pipeline class to convert from waveform tensor to spectrogram tensor.
-    A spectrogram is a visual representation of audio as a 2D, 1-channel image.
-    These audio spectrograms can then be used to train a CNN in the same way as regular images.
+    The spectrogram is a visual representation of the audio as a 2D, 1-channel image.
+    These audio spectrograms can then be used to train a CNN analogously to a computer vision problem.
     """
 
     def __init__(self,
@@ -246,10 +246,10 @@ class AudioPipeline(nn.Module):
         ])
 
     def forward(self, waveform: torch.Tensor, augment: bool = False) -> torch.Tensor:
-        resampled = self.resample(waveform)  # Changes sample rate (less data)
-        spec = self.spec(resampled)  # Converts waveform to spectrogram
-        mel = self.mel_scale(spec)  # Changes frequency from linear scale to a scale more akin to human hearing
-        mono = (mel[0] + mel[1]) / 2 #  2-channel to 1-channel
+        resampled = self.resample(waveform)  #  Changes sample rate (less data)
+        spec = self.spec(resampled)  #  Converts waveform to spectrogram
+        mel = self.mel_scale(spec)  #  Changes frequency from linear scale to a scale more akin to human hearing
+        mono = (mel[0] + mel[1]) / 2  #  2-channel to 1-channel
         unsqueezed = mono.unsqueeze(dim=0)
         with torch.inference_mode():
             resized = self.resize(unsqueezed)
@@ -278,6 +278,6 @@ music_df = info_df_cleaned.merge(right=audio_df, on='Song_ID')
 with open('saved items/music_df.pkl', 'wb') as f:
     pickle.dump(music_df, f)
 
-# Visualize a random spectrogram from music_df:
+# Uncomment to visualize a random spectrogram from music_df:
 # from useful_functions import random_spectrogram
 # random_spectrogram(df=music_df)
