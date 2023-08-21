@@ -8,7 +8,7 @@ from tqdm.auto import tqdm
 from timeit import default_timer as timer
 from useful_functions import plot_loss_curves
 
-# Goal: train CNN regression models to estimate characteristics (e.g., Energy, Valence) of an unheard audio file.
+# Goal: train CNN regression models to estimate characteristics (e.g., Energy, Valence) of an "unheard" audio file.
 
 with open('saved items/char_names.pkl', 'rb') as f:
     char_names = pickle.load(f)
@@ -60,18 +60,18 @@ class Spec_Analyzer(nn.Module):
             nn.BatchNorm2d(num_features=scans),
             nn.MaxPool2d(kernel_size=2)
         )
-        self.classifier = nn.Sequential(
+        self.regression = nn.Sequential(
             nn.Flatten(),
             nn.Linear(in_features=scans*18*24, out_features=output_shape)
         )
 
     def forward(self, x):
-        # If altering model, uncomment lines 68-71 and comment line 72 to test for input shape into classifier block
+        # If altering model, uncomment lines 68-71 and comment line 72 to test for input shape into regression block
         # x = self.conv1(x)
         # x = self.conv2(x)
         # x = self.conv3(x)
         # print(x.shape) # input shape for classifier block
-        return self.classifier(self.conv3(self.conv2(self.conv1(x))))
+        return self.regression(self.conv3(self.conv2(self.conv1(x))))
 
 # Test one input spectrogram (especially to get input shape for model's classifier block after altering model)
 device = 'cpu'
@@ -154,7 +154,7 @@ def loss_curves(results: dict):
 
 # Train, test, and evaluation
 
-device = 'mps' if getattr(torch, "has_mps") else 'cpu'  # change to available/desired processing unit
+device = 'mps' if getattr(torch, "has_mps") else 'cpu'  # Change to available/desired processing unit. Currently Apple metal
 
 # Initialize models, loss_fn
 energy_model_0 = Spec_Analyzer(input_shape=1, scans=20, output_shape=1).to(device)
@@ -166,7 +166,7 @@ loss_fn = nn.HuberLoss(delta=0.06)
 # Train models
 # Energy
 optimizer = torch.optim.Adam(params=energy_model_0.parameters(), lr=0.01)
-SCHED_TIMESCALE = 1
+SCHED_TIMESCALE = 1  # affects how quickly learning rate decays, see milestones below
 scheduler = torch.optim.lr_scheduler.MultiStepLR(optimizer, gamma=0.1,
                                                  milestones=[int(x*SCHED_TIMESCALE) for x in [6, 9, 12]], verbose=True)
 energy_results = train_model(model=energy_model_0,
