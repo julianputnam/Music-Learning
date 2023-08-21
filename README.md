@@ -13,10 +13,10 @@ Sample Spectrogram             |  Model Results
 
 ### Two ways to execute the code:
 1. Use saved models and spectrograms to quickly see demo results: 
-   Run model_demo.py
+   Run **model_demo.py**
 
 2. Collect and structure data for PyTorch, train models, then view demo results:
-   Run data_collection.py > data_loading.py > model_train.py > model_demo.py
+   Run **data_collection.py** > **data_loading.py** > **model_train.py** > **model_demo.py**
 
 Important: For the data collection steps, Spotify API access must be authorized with a valid client id and private key. To get your own, go to https://developer.spotify.com/
 
