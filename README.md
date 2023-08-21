@@ -3,9 +3,9 @@
 
 *Last updated 8.20.2023*
 
-Given any 30 second music audio file, predict Energy, Danceability, and Valence (how upbeat the song sounds) using convolutional neural networks trained on data collected via the Spotify API for Python (spotipy). *Note: Only demo is currently available--ability to test on custom audio files and more features coming soon.*
+Given any 30 second music audio file, predict Energy, Danceability, and Valence (how upbeat the song sounds) using convolutional neural networks trained on data collected via Spotify API (spotipy). *Note: Only demo is currently available--ability to test on custom audio files and more features coming soon.*
 
-Energy, Danceability, and Valence are audio characteristics stored by Spotify for every song on the platform and measured between 0 and 1. For instance, a song with Energy=0.2 and Valence=0.75 might be slow with soft instruments but still communicate a positive feeling. Using trained models, we can predict these values offline from previously "unheard" music audio files.
+Energy, Danceability, and Valence are audio characteristics stored by Spotify for every song on the platform and measured between 0 and 1. For instance, a song with Energy=0.2 and Valence=0.75 might be slow with soft instruments but still *feel* positive. Using trained models, we can predict these values offline from previously "unheard" music audio files.
 
 Sample Spectrogram             |  Model Results
 :-------------------------:|:-------------------------:
@@ -29,7 +29,7 @@ Important: For the data collection steps, Spotify API access must be authorized 
 
 • Train separate models, one for each target, on a custom CNN architecture. Learning spectrogram features is treated similarly to a computer vision problem.
 
-• Demonstrate model capabilities using randomly selected song from test dataset ("unheard" during model training).
+• Demonstrate model capabilities using a randomly selected song from test dataset ("unheard" during model training).
 
 ### Why?
-I was motivated to start this project in June 2023 when I had the idea for an app that would allow a user to upload their own music audio and receive analysis and insight including the mood of the song, similar songs and artists, and possibly even which markets and demographics enjoy similar sounding songs the most, for indie artist marketing purposes. In order to bring this to fruition, the next steps would involve model implementation, accesible UI, building of additional features, and possibly redesigning the project based on an alternative data source containing marketing info such as Chartmetric.
+I was motivated to start this project in June 2023 when I had the idea for an app that would allow a user to upload their own music audio and receive analysis and insight including the mood of the song, similar songs and artists, and possibly even which markets and demographics enjoy similar sounding songs the most, for indie artist marketing purposes. In order to bring this to fruition, the next steps would involve model implementation, accesible UI, building out additional features, and possibly redesigning the project based on an alternative data source containing marketing info, such as Chartmetric.
