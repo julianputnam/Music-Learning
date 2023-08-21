@@ -5,7 +5,7 @@
 
 Given any 30 second music audio file, predict Energy, Danceability, and Valence (how upbeat the song sounds) using convolutional neural networks trained on data collected via Spotify API (spotipy). *Note: Only demo is currently available--ability to test on custom audio files and more features coming soon.*
 
-Energy, Danceability, and Valence are audio characteristics stored by Spotify for every song on the platform and measured between 0 and 1. For instance, a song with Energy=0.2 and Valence=0.75 might be slow with soft instruments but still *feel* positive. Using trained models, we can predict these values offline from previously "unheard" music audio files.
+Energy, Danceability, and Valence are audio characteristics stored by Spotify for every song on the platform, measured between 0 and 1. For instance, a song with Energy=0.2 and Valence=0.75 might be slow with soft instruments but still *feel* positive. Using trained models, we can predict these values offline from previously "unheard" music audio files.
 
 Sample Spectrogram             |  Model Results
 :-------------------------:|:-------------------------:
