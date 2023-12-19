@@ -31,5 +31,8 @@ Important: For the data collection steps, Spotify API access must be authorized 
 
 • Demonstrate models' predictive capabilities using a randomly selected song from test dataset ("unheard" during model training).
 
-### Why?
-I was motivated to start this project in June 2023 when I had the idea for an app that would allow a user to upload music and receive analysis and insight including the mood of the song, similar songs and artists, and possibly even which markets and demographics enjoy similar sounding songs the most, for marketing purposes. In order to bring this to fruition, the next steps would involve building out additional features, model implementation, accesible UI, and attaching additional data sources containing marketing info, such as Chartmetric.
+### Next steps:
+• Build out additional features
+• Build model implementation and accesible UI
+• Explore alternative or additional data sources, with richer datapoints
+• Follow strong use-cases and update accordingly
