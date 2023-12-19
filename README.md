@@ -32,10 +32,10 @@ Important: For the data collection steps, Spotify API access must be authorized 
 • Demonstrate models' predictive capabilities using a randomly selected song from test dataset ("unheard" during model training).
 
 ### Next steps:
-• Build out additional features.
+• Improve existing code and build out additional features.
 
 • Build model implementation and accesible UI.
 
-• Explore alternative or additional data sources, with richer datapoints.
+• Explore alternative or additional data sources with richer datapoints.
 
-• Follow strong use-cases and update accordingly.
+• Seek viable use-cases and follow accordingly.
