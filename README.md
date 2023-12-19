@@ -33,6 +33,9 @@ Important: For the data collection steps, Spotify API access must be authorized 
 
 ### Next steps:
 • Build out additional features
+
 • Build model implementation and accesible UI
+
 • Explore alternative or additional data sources, with richer datapoints
+
 • Follow strong use-cases and update accordingly
